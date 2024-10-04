@@ -126,9 +126,9 @@
             // Algorithm:
             currentHole = Math.floor(Math.random() * 6);
 
-            let children = holes[currentHole].querySelectorAll('.mole');
+            let children = holes[currentHole].querySelector('.mole');
 
-            children[0].dislay = "none";
+            children[currentHole].dislay = "none";
             
             // 1. Hide the mole in the previous hole (if any).           
             // 2. Generate a random index to select a new hole. 
