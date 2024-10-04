@@ -98,6 +98,11 @@
     <script>
         // Set up local variables
         // Hint: Declare variables for score, currentHole, gameTimer, timeLeft, moleVisible, etc.
+        let score = 0
+        let currentHole = 0
+        let gameTimer = 0
+        let timeLeft = 0
+        let moleVisible = false
 
         // Get references to DOM elements
         // Example:
@@ -118,6 +123,8 @@
         // TODO: mole movement logic
         function randomHole() {
             // Algorithm:
+            const randomHole = Math.random() * 5;
+            let holes = document.getElementsByClassName("hole")
             // 1. Hide the mole in the previous hole (if any).           
             // 2. Generate a random index to select a new hole. 
             //      hint: you need to then find all "mole holes" and randomly choose one from the list.           
