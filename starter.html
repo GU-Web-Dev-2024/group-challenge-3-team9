@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta tags for character encoding and responsive design -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whack-a-Mole</title>
+    <style>
+        /* Basic styling for the game */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 150px);
+            grid-gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .hole {
+            width: 150px;
+            height: 150px;
+            background-color: lightgray;
+            border: 2px solid #333;
+            position: relative;
+        }
+
+        .mole {
+            width: 100px;
+            height: 100px;
+            background-color: brown;
+            border-radius: 50%;
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            display: none;
+            /* Hide the mole by default */
+        }
+
+        .mole:hover {
+            cursor: pointer;
+            border: 5px solid yellow;
+            /* Highlight the mole on hover */
+        }
+
+        #startButton {
+            margin: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+
+        #score-board {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        #timer {
+            font-size: 24px;
+            margin-top: 20px;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Whack-a-Mole Game</h1>
+    <!-- Score and Timer displays -->
+    <div id="score-board">Score: 0</div>
+    <div id="timer">Time Left: 30s</div>
+    <!-- Start Game button -->
+    <button id="startButton">Start Game</button>
+    <!-- Game grid containing holes and moles -->
+    <div class="grid">
+        <div class="hole" id="hole1">
+            <div class="mole"></div>
+        </div>
+        <div class="hole" id="hole2">
+            <div class="mole"></div>
+        </div>
+        <div class="hole" id="hole3">
+            <div class="mole"></div>
+        </div>
+        <div class="hole" id="hole4">
+            <div class="mole"></div>
+        </div>
+        <div class="hole" id="hole5">
+            <div class="mole"></div>
+        </div>
+        <div class="hole" id="hole6">
+            <div class="mole"></div>
+        </div>
+    </div>
+
+    <script>
+        // Set up local variables
+        // Hint: Declare variables for score, currentHole, gameTimer, timeLeft, moleVisible, etc.
+
+        // Get references to DOM elements
+        // Example:
+        // const startButton = document.getElementById('startButton');
+
+        // Add event listener to the start button        
+
+        // TODO: start game logic
+        function startGame() {
+            // Algorithm:
+            // 1. Reset game variables: score starts at 0, timer starts at max, mole visibility, etc.          
+            // 2. Update JS variables and HTML elements to reflect this.            
+            // 3. Start the mole movement interval using setInterval().
+            //    e.g., - gameTimer = setInterval(randomHole, 1000); // Move mole every second
+            // 4. Start the countdown timer using setInterval().            
+        }
+
+        // TODO: mole movement logic
+        function randomHole() {
+            // Algorithm:
+            // 1. Hide the mole in the previous hole (if any).           
+            // 2. Generate a random index to select a new hole. 
+            //      hint: you need to then find all "mole holes" and randomly choose one from the list.           
+            // 3. Show the mole in the new hole.            
+            // 4. Add a click event listener to the mole to handle "whacking".            
+        }
+
+        // TODO: whack mole game logic
+        function whack() {
+            // Algorithm:
+            // 0. if the mole is visible...
+            // 1. Increase the score.           
+            // 2. Update the score display in the HTML.           
+            // 3. Hide the mole after it's whacked.            
+        }
+
+        // TODO: end game logic function
+        function endGame() {
+            // Algorithm:
+            // 1. Stop the mole movement and countdown timers using clearInterval().            
+            // 2. Hide any remaining mole on the grid.            /
+            // 3. Display an alert or message showing the final score.            
+            // 4. Reset the game to allow playing again.
+        }
+
+        // Helpful Tips:
+        // - Use setInterval() to create "loops" for mole movement and countdown timer.
+        // - Use Math.random() and Math.floor() to select a random hole.
+        // - Use querySelectorAll() to get all hole elements and store them in a variable.
+        // - Manipulate the DOM to show and hide moles using style.display or classList methods.
+        // - Remember to remove event listeners if necessary to prevent multiple bindings.
+        // - Remember to clear intervals if you are done with them!
+        // - Keep track of the game's state using variables (e.g., is the mole visible?).
+        // - Test each function individually to ensure it works before moving on.
+    </script>
+</body>
+
+</html>
