@@ -37,7 +37,6 @@
             position: absolute;
             top: 25px;
             left: 25px;
-            display: none;
             /* Hide the mole by default */
         }
 
@@ -107,11 +106,13 @@
         // Get references to DOM elements
         // Example:
         // const startButton = document.getElementById('startButton');
+        const holes = document.getElementsByClassName("hole");
 
         // Add event listener to the start button        
 
         // TODO: start game logic
         function startGame() {
+            randomHole();
             // Algorithm:
             // 1. Reset game variables: score starts at 0, timer starts at max, mole visibility, etc.          
             // 2. Update JS variables and HTML elements to reflect this.            
@@ -123,8 +124,12 @@
         // TODO: mole movement logic
         function randomHole() {
             // Algorithm:
-            const randomHole = Math.random() * 5;
-            let holes = document.getElementsByClassName("hole")
+            currentHole = Math.floor(Math.random() * 6);
+
+            let children = holes[currentHole].querySelectorAll('.mole');
+
+            children[0].dislay = "none";
+            
             // 1. Hide the mole in the previous hole (if any).           
             // 2. Generate a random index to select a new hole. 
             //      hint: you need to then find all "mole holes" and randomly choose one from the list.           
@@ -149,6 +154,8 @@
             // 3. Display an alert or message showing the final score.            
             // 4. Reset the game to allow playing again.
         }
+
+        startGame();
 
         // Helpful Tips:
         // - Use setInterval() to create "loops" for mole movement and countdown timer.
