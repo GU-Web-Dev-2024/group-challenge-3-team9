@@ -32,18 +32,13 @@
         .mole {
             width: 100px;
             height: 100px;
-            background-color: lightgray;
+            background-color: brown;
             border-radius: 50%;
             position: absolute;
             top: 25px;
             left: 25px;
             /* Hide the mole by default */
             display: none;
-        }
-
-        .img {
-            width: 80px;
-            height: 80px;
         }
 
         .mole:hover {
@@ -81,22 +76,22 @@
     <!-- Game grid containing holes and moles -->
     <div class="grid">
         <div class="hole" id="hole1">
-            <div class="mole"><img class="img" src="res/olivares.jpg" alt=""></div>
+            <div class="mole"></div>
         </div>
         <div class="hole" id="hole2">
-            <div class="mole"><img class="img" src="res/olivares.jpg" alt=""></div>
+            <div class="mole"></div>
         </div>
         <div class="hole" id="hole3">
-            <div class="mole"><img class="img" src="res/olivares.jpg" alt=""></div>
+            <div class="mole"></div>
         </div>
         <div class="hole" id="hole4">
-            <div class="mole"><img class="img" src="res/olivares.jpg" alt=""></div>
+            <div class="mole"></div>
         </div>
         <div class="hole" id="hole5">
-            <div class="mole"><img class="img" src="res/olivares.jpg" alt=""></div>
+            <div class="mole"></div>
         </div>
         <div class="hole" id="hole6">
-            <div class="mole"><img class="img" src="res/olivares.jpg" alt=""></div>
+            <div class="mole"></div>
         </div>
     </div>
 
@@ -116,35 +111,31 @@
         const startButton = document.getElementById('startButton');
         const timerMessage = document.getElementById('timer');
         const scoreBoard = document.getElementById('score-board');
-
-        // Add event listener to the start button        
+        // Add event listener to the start button
 
         startButton.addEventListener('click', startGame);
 
         for (let i = 1; i <= 6; i++) {
             let holeID = 'hole' + i;
-            let mole = document.getElementById(holeID).childNodes[1];
-            console.log(mole);
-            mole.addEventListener('click', whack);
+            let hole = document.getElementById(holeID);
+            hole.addEventListener('click', whack);
         }
 
 
-        
 
         // TODO: start game logic
         function startGame() {
-            randomHole();
             // Algorithm:
             // 1. Reset game variables: score starts at 0, timer starts at max, mole visibility, etc.          
             // 2. Update JS variables and HTML elements to reflect this.            
             // 3. Start the mole movement interval using setInterval().
             //    e.g., - gameTimer = setInterval(randomHole, 1000); // Move mole every second
-            // 4. Start the countdown timer using setInterval().            
+            // 4. Start the countdown timer using setInterval().    
+            console.log('hello');
         }
 
         // TODO: mole movement logic
         function randomHole() {
-            // Algorithm:
             hideMoles();
 
             currentHole = Math.floor(Math.random() * 6) + 1;
@@ -152,9 +143,9 @@
             let holeID = 'hole' + currentHole;
             let hole = document.getElementById(holeID);
             hole.childNodes[1].style.display = "block";
-            console.log(hole.childNodes[1]);
 
             moleVisible[currentHole-1] = true;
+
             
             // 1. Hide the mole in the previous hole (if any).           
             // 2. Generate a random index to select a new hole. 
@@ -169,13 +160,10 @@
             // 0. if the mole is visible...
             // 1. Increase the score.           
             // 2. Update the score display in the HTML.           
-            // 3. Hide the mole after it's whacked.    
-            let id = event.srcElement.parentNode.parentNode.id;
-            let idNumber = parseInt(id[id.length - 1]);
-            if (moleVisible[idNumber - 1]) {
-                console.log("hit");
-            }
-            
+            // 3. Hide the mole after it's whacked.      
+
+           console.log(event.srcElement.id);     
+           
         }
 
         // TODO: end game logic function
@@ -195,7 +183,6 @@
                 moleVisible[i - 1] = false;
             }
         }
-
 
         // Helpful Tips:
         // - Use setInterval() to create "loops" for mole movement and countdown timer.
