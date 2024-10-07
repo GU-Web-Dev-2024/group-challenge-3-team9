@@ -112,14 +112,17 @@
 
         // Get references to DOM elements
         // Example:
-        // const startButton = document.getElementById('startButton');
+        const startButton = document.getElementById('startButton');
         const holes = document.getElementsByClassName("hole");
 
-        // Add event listener to the start button        
+        // Add event listener to the start button     
+        startButton.addEventListener('click', startGame);   
 
         // TODO: start game logic
         function startGame() {
-            randomHole();
+
+            gameTimer = setInterval(randomHole, 1000);
+          
             // Algorithm:
             // 1. Reset game variables: score starts at 0, timer starts at max, mole visibility, etc.          
             // 2. Update JS variables and HTML elements to reflect this.            
@@ -130,6 +133,10 @@
 
         // TODO: mole movement logic
         function randomHole() {
+            
+            for(let i = 0; i < holes.length; i++) {
+                holes[i].querySelector('.mole').querySelector('.img').style.visibility = "hidden";
+            }
             // Algorithm:
             currentHole = Math.floor(Math.random() * 6);
 
@@ -146,6 +153,7 @@
 
         // TODO: whack mole game logic
         function whack() {
+
             // Algorithm:
             // 0. if the mole is visible...
             // 1. Increase the score.           
