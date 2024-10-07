@@ -44,6 +44,7 @@
         .img {
             width: 80px;
             height: 80px;
+            border-radius: 20px;
         }
 
         .mole:hover {
@@ -133,7 +134,9 @@
 
         // TODO: start game logic
         function startGame() {
-            randomHole();
+
+            gameTimer = setInterval(randomHole, 1000);
+          
             // Algorithm:
             // 1. Reset game variables: score starts at 0, timer starts at max, mole visibility, etc.          
             // 2. Update JS variables and HTML elements to reflect this.            
@@ -144,6 +147,10 @@
 
         // TODO: mole movement logic
         function randomHole() {
+            
+            for(let i = 0; i < holes.length; i++) {
+                holes[i].querySelector('.mole').querySelector('.img').style.visibility = "hidden";
+            }
             // Algorithm:
             hideMoles();
 
@@ -165,6 +172,7 @@
 
         // TODO: whack mole game logic
         function whack() {
+
             // Algorithm:
             // 0. if the mole is visible...
             // 1. Increase the score.           
